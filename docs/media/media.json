@@ -1,0 +1,78 @@
+{
+  "app": "project-scaffolder",
+  "captured_at": "2026-11-13T02:55:56Z",
+  "app_commit": "2d2c3ed19ca164e35a2cf3a1799201c0dee36b0d",
+  "kirocrew_commit": "b9e703dc4c534a269b453972803438899ab61823",
+  "kirocrew_tree_dirty": false,
+  "gateway": "isolated temporary home, approval=reads; a freshly seeded gateway for the stub screenshots, one for the live ones and one for the walkthrough",
+  "data": "fictional, seeded through the app's HTTP API (capture/scenes.json)",
+  "agent_backend": {
+    "live": [],
+    "live_model": null,
+    "stub": "Kiro Crew's offline stub ACP backend (capture/stub_backend.py) for every other scene; no chat reply is shown from it",
+    "credit_reading": "the browser answers the top bar's credit readout (/api/sessions/usage) with \"no reading\", so no account balance or email can be shown"
+  },
+  "note": "The isolated gateway served the Create Folders From Project app built into the Kiro Crew checkout (src/kiro_crew/apps/builtins/project_scaffolder, website/src/apps/project-scaffolder), because a gateway that still ships the built-in cannot install a second app under the same name. This repository is the externally packaged copy of that page, ported with the same markup, strings and requests; PORTING.md lists where the two differ, and none of the differences is on screen in these pictures.",
+  "data_notes": [
+    "The app scans a directory on disk and has no API that writes one, so capture/demo_tree.py wrote a made-up workspace (an allotment-planner project for a community garden, with two small git repositories inside it) under the system temp directory, and the gateway ran with HOME pointing at the made-up home folder beside it.",
+    "The sidebar folders in the results picture were created by pressing the page's own Create sidebar folders button."
+  ],
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "device_scale": 2,
+  "screenshots": [
+    {
+      "file": "hero-dark.png",
+      "name": "hero",
+      "theme": "dark",
+      "bytes": 291016,
+      "width": 1600,
+      "height": 1000,
+      "alt": "The Create Folders From Project page after scanning an allotment-planner project: a preview lists six sub-projects directly under the root, four ticked as Confident (web, design-tokens, api, weather) and two offered as Possible match (mobile, seed-data), each with why it matched, and a Create sidebar folders button"
+    },
+    {
+      "file": "hero-light.png",
+      "name": "hero",
+      "theme": "light",
+      "bytes": 277216,
+      "width": 1600,
+      "height": 1000,
+      "alt": "The Create Folders From Project page after scanning an allotment-planner project: a preview lists six sub-projects directly under the root, four ticked as Confident (web, design-tokens, api, weather) and two offered as Possible match (mobile, seed-data), each with why it matched, and a Create sidebar folders button"
+    },
+    {
+      "file": "use-case-nested-light.png",
+      "name": "use-case-nested",
+      "theme": "light",
+      "bytes": 283817,
+      "width": 1600,
+      "height": 1000,
+      "alt": "The preview with mobile now ticked and the collapsed group below it opened: 1 possible sub-folder inside packages above, the e2e folder inside web, offered as a Possible match and left unticked"
+    },
+    {
+      "file": "use-case-results-light.png",
+      "name": "use-case-results",
+      "theme": "light",
+      "bytes": 282304,
+      "width": 1600,
+      "height": 1000,
+      "alt": "After pressing Create sidebar folders: a Results card reports 5 created, listing the root folder and the four ticked sub-projects, and the preview above now marks those rows Already set up while mobile and seed-data stay unticked"
+    }
+  ],
+  "walkthrough": {
+    "shortened_waits_s": [],
+    "mp4": {
+      "file": "walkthrough.mp4",
+      "bytes": 463634
+    },
+    "gif": {
+      "file": "walkthrough.gif",
+      "bytes": 3074084,
+      "width": 960,
+      "fps": 10
+    },
+    "theme": "light",
+    "alt": "A walkthrough of Create Folders From Project: typing the allotment-planner project's path and pressing Scan, the preview listing confident and possible sub-projects with why each matched, ticking mobile, opening the deferred group to see the e2e folder inside web, then pressing Create sidebar folders and reading the Results card while the created rows turn Already set up"
+  }
+}

@@ -1,0 +1,6 @@
+# Test-only dependencies, pinned. Deliberately NOT at the repository root: a root
+# requirements.txt makes a Kiro Crew registry install run pip into the gateway's
+# interpreter (and is refused outright on the desktop build). At runtime the
+# app has no backend: it is a page over two host endpoints.
+pytest==9.0.3
+flake8==7.3.0

@@ -1,0 +1,207 @@
+{
+  "name": "project-scaffolder",
+  "version": "0.1.0",
+  "displayName": "Create Folders From Project",
+  "description": "Point it at a project directory and it works out which sub-projects live inside, then creates a matching sidebar folder for each one. The scan is read-only, so you see the whole list and tick what you want before anything is created. Sub-projects nest under their parent the way they do on disk, and anything you have already set up is shown but never created twice.",
+  "author": "kirocrew",
+  "license": "Apache-2.0",
+  "minKiroCrewVersion": "0.12.0",
+  "tags": [
+    "folders",
+    "projects",
+    "organization",
+    "developer-tools"
+  ],
+  "highlights": [
+    "Scans read-only first, so nothing is created until you confirm a selection",
+    "Lists top-level packages as rows, with deeper finds behind one collapsed group you can select all or none of",
+    "Confident matches start ticked; weaker ones are offered for you to opt into",
+    "Shows the signals behind each match, so you can see why a directory was picked",
+    "Folders you already have are listed but skipped, never duplicated",
+    "Reports exactly what was created, skipped, and what failed and why"
+  ],
+  "defaultEnabled": false,
+  "platform": {
+    "os": [
+      "macos",
+      "linux",
+      "windows"
+    ]
+  },
+  "iconPath": "assets/icon.png",
+  "heroImage": "assets/hero-light.png",
+  "heroImageDark": "assets/hero-dark.png",
+  "heroImageDetail": "assets/hero-detail-light.png",
+  "heroImageDetailDark": "assets/hero-detail-dark.png",
+  "permissions": {
+    "api": [
+      "/api/project-scaffold",
+      "/api/browse-dirs",
+      "/api/recent-projects",
+      "/api/favorite-projects"
+    ]
+  },
+  "ui": {
+    "entry": "dist/index.mjs",
+    "pages": [
+      {
+        "route": "/apps/project-scaffolder",
+        "label": "Create Folders"
+      }
+    ]
+  },
+  "useCases": [
+    "Turn a monorepo or a directory of sibling repositories into one sidebar folder per package, so per-package steering loads without hand-building the tree."
+  ],
+  "configuration": [
+    "Open Create Folders, browse to a project directory, review the preview and tick the packages you want, then confirm to create the folders."
+  ],
+  "screenshots": [
+    "assets/screenshot-main.png"
+  ],
+  "l10n": {
+    "bn": {
+      "displayName": "প্রকল্প থেকে ফোল্ডার তৈরি করুন",
+      "description": "একটি প্রকল্প ডিরেক্টরি নির্দেশ করুন, আর এটি বের করে নেবে ভিতরে কোন কোন উপ-প্রকল্প আছে, তারপর প্রতিটির জন্য একটি মিল রেখে সাইডবার ফোল্ডার তৈরি করবে। স্ক্যানটি কেবল-পঠনযোগ্য, তাই কিছু তৈরি হওয়ার আগেই আপনি পুরো তালিকা দেখে যা চান তা বেছে নিতে পারেন। উপ-প্রকল্পগুলি ডিস্কে যেভাবে থাকে সেভাবেই তাদের প্যারেন্টের নিচে সাজানো হয়, এবং আপনি আগেই যা সেট করে রেখেছেন তা দেখানো হয় কিন্তু কখনও দুবার তৈরি হয় না।",
+      "pageLabel": "ফোল্ডার তৈরি করুন",
+      "highlights": [
+        "প্রথমে কেবল-পঠনযোগ্য স্ক্যান, তাই আপনি নির্বাচন নিশ্চিত করার আগে কিছুই তৈরি হয় না",
+        "শীর্ষ-স্তরের প্যাকেজগুলি সারি হিসেবে দেখায়, আর গভীরের সন্ধানগুলি একটি ভাঁজ করা গ্রুপে — সব নির্বাচন বা কিছুই নয়",
+        "নিশ্চিত মিলগুলি আগেই টিক দেওয়া থাকে; দুর্বল মিলগুলি আপনার বাছাইয়ের জন্য রাখা হয়",
+        "প্রতিটি মিলের পিছনের সংকেত দেখায়, যাতে বুঝতে পারেন কেন একটি ডিরেক্টরি বাছা হয়েছে",
+        "আপনার আগে থেকেই থাকা ফোল্ডারগুলি তালিকায় থাকে কিন্তু বাদ দেওয়া হয়, কখনও নকল হয় না",
+        "ঠিক কী তৈরি হয়েছে, কী বাদ পড়েছে, এবং কী ব্যর্থ হয়েছে ও কেন তা জানায়"
+      ]
+    },
+    "de": {
+      "displayName": "Ordner aus Projekt erstellen",
+      "description": "Geben Sie ein Projektverzeichnis an, und es ermittelt, welche Teilprojekte darin liegen, und erstellt anschließend für jedes einen passenden Seitenleisten-Ordner. Der Scan ist schreibgeschützt, Sie sehen also die vollständige Liste und wählen aus, bevor irgendetwas erstellt wird. Teilprojekte werden unter ihrem übergeordneten Verzeichnis so verschachtelt wie auf der Festplatte, und was Sie schon eingerichtet haben, wird angezeigt, aber nie doppelt erstellt.",
+      "pageLabel": "Ordner erstellen",
+      "highlights": [
+        "Scannt zuerst schreibgeschützt, es wird also nichts erstellt, bis Sie eine Auswahl bestätigen",
+        "Listet Pakete der obersten Ebene als Zeilen, tiefere Funde stehen in einer einzigen eingeklappten Gruppe mit Alle auswählen und Auswahl aufheben",
+        "Sichere Treffer sind vorab angehakt; schwächere werden Ihnen zur Auswahl angeboten",
+        "Zeigt die Hinweise hinter jedem Treffer, damit Sie sehen, warum ein Verzeichnis gewählt wurde",
+        "Bereits vorhandene Ordner werden aufgeführt, aber übersprungen und nie doppelt angelegt",
+        "Berichtet genau, was erstellt und was übersprungen wurde, und was fehlschlug und warum"
+      ]
+    },
+    "es": {
+      "displayName": "Crear carpetas desde un proyecto",
+      "description": "Indícale un directorio de proyecto y averiguará qué subproyectos hay dentro, para luego crear una carpeta de la barra lateral por cada uno. El análisis es de solo lectura, así que ves la lista completa y marcas lo que quieras antes de que se cree nada. Los subproyectos se anidan bajo su directorio superior igual que en el disco, y lo que ya tengas configurado se muestra pero nunca se crea dos veces.",
+      "pageLabel": "Crear carpetas",
+      "highlights": [
+        "Analiza primero en solo lectura, así que nada se crea hasta que confirmas una selección",
+        "Enumera los paquetes de nivel superior como filas, y los hallazgos más profundos en un único grupo plegado que puedes seleccionar por completo o dejar vacío",
+        "Las coincidencias fiables vienen marcadas; las más débiles se ofrecen para que las elijas",
+        "Muestra las señales detrás de cada coincidencia, para que veas por qué se eligió un directorio",
+        "Las carpetas que ya tienes aparecen en la lista pero se omiten, nunca se duplican",
+        "Informa exactamente de lo creado, lo omitido y lo que falló y por qué"
+      ]
+    },
+    "fr": {
+      "displayName": "Créer des dossiers depuis un projet",
+      "description": "Indiquez-lui un répertoire de projet et il détermine quels sous-projets s'y trouvent, puis crée un dossier de barre latérale correspondant à chacun. L'analyse est en lecture seule : vous voyez donc toute la liste et cochez ce que vous voulez avant que quoi que ce soit soit créé. Les sous-projets s'imbriquent sous leur parent comme sur le disque, et ce que vous avez déjà configuré est affiché mais jamais créé deux fois.",
+      "pageLabel": "Créer des dossiers",
+      "highlights": [
+        "Analyse d'abord en lecture seule, donc rien n'est créé avant que vous confirmiez une sélection",
+        "Liste les paquets de premier niveau, les trouvailles plus profondes étant réunies dans un seul groupe replié que vous pouvez tout sélectionner ou tout désélectionner",
+        "Les correspondances sûres sont cochées ; les plus faibles vous sont proposées",
+        "Affiche les indices derrière chaque correspondance, pour voir pourquoi un répertoire a été retenu",
+        "Les dossiers que vous avez déjà sont listés mais ignorés, jamais dupliqués",
+        "Indique exactement ce qui a été créé, ignoré, et ce qui a échoué et pourquoi"
+      ]
+    },
+    "hi": {
+      "displayName": "प्रोजेक्ट से फ़ोल्डर बनाएँ",
+      "description": "इसे किसी प्रोजेक्ट डायरेक्टरी पर लक्षित करें और यह पता लगा लेगा कि उसके भीतर कौन-कौन से सब-प्रोजेक्ट हैं, फिर हर एक के लिए एक मेल खाता साइडबार फ़ोल्डर बनाएगा। स्कैन केवल-पढ़ने वाला है, इसलिए कुछ भी बनने से पहले तुम पूरी सूची देखकर अपनी पसंद चुन सकते हो। सब-प्रोजेक्ट अपने पैरेंट के नीचे उसी तरह नेस्ट होते हैं जैसे डिस्क पर होते हैं, और जो तुमने पहले से सेट कर रखा है वह दिखाया जाता है लेकिन दोबारा कभी नहीं बनाया जाता।",
+      "pageLabel": "फ़ोल्डर बनाएँ",
+      "highlights": [
+        "पहले केवल-पढ़ने वाला स्कैन, इसलिए तुम्हारी पुष्टि तक कुछ नहीं बनता",
+        "शीर्ष-स्तर के पैकेज पंक्तियों में दिखाता है, और गहरे मिलान एक ही सिमटे हुए समूह में, जिसे पूरा चुनें या कोई नहीं",
+        "भरोसेमंद मिलान पहले से चुने होते हैं; कमज़ोर मिलान तुम्हारे चुनने के लिए रखे जाते हैं",
+        "हर मिलान के पीछे के संकेत दिखाता है, ताकि तुम देख सको कि कोई डायरेक्टरी क्यों चुनी गई",
+        "जो फ़ोल्डर पहले से हैं वे सूची में दिखते हैं पर छोड़ दिए जाते हैं, दोहराए नहीं जाते",
+        "ठीक-ठीक बताता है कि क्या बनाया गया, क्या छोड़ा गया, और क्या विफल हुआ और क्यों"
+      ]
+    },
+    "it": {
+      "displayName": "Crea cartelle da un progetto",
+      "description": "Indicagli una directory di progetto e capirà quali sottoprogetti contiene, creando poi una cartella della barra laterale per ciascuno. La scansione è in sola lettura, quindi vedi tutto l’elenco e spunti ciò che vuoi prima che venga creato qualcosa. I sottoprogetti si annidano sotto la directory superiore come sul disco, e ciò che hai già configurato viene mostrato ma mai creato due volte.",
+      "pageLabel": "Crea cartelle",
+      "highlights": [
+        "Prima esegue una scansione in sola lettura, quindi nulla viene creato finché non confermi una selezione",
+        "Elenca i pacchetti di primo livello come righe, con i risultati più profondi in un unico gruppo richiuso da selezionare tutto o niente",
+        "Le corrispondenze affidabili sono già spuntate; quelle più deboli sono proposte a te",
+        "Mostra gli indizi dietro ogni corrispondenza, così vedi perché una directory è stata scelta",
+        "Le cartelle che hai già compaiono nell’elenco ma vengono ignorate, mai duplicate",
+        "Riporta esattamente cosa è stato creato, cosa ignorato, e cosa è fallito e perché"
+      ]
+    },
+    "ja": {
+      "displayName": "プロジェクトからフォルダーを作成",
+      "description": "プロジェクトのディレクトリを指定すると、その中にどのサブプロジェクトがあるかを判別し、それぞれに対応するサイドバーのフォルダーを作成します。スキャンは読み取り専用なので、何かが作成される前に一覧全体を確認し、必要なものにチェックを入れられます。サブプロジェクトはディスク上と同じように親の下に入れ子になり、すでに設定済みのものは表示されますが二重に作成されることはありません。",
+      "pageLabel": "フォルダーを作成",
+      "highlights": [
+        "まず読み取り専用でスキャンするため、選択を確定するまで何も作成されません",
+        "トップレベルのパッケージを行として一覧表示し、より深い検出結果は 1 つの折りたたみグループにまとめて全選択・全解除できます",
+        "確度の高い一致は最初からチェック済み、弱い一致は任意で選べます",
+        "一致の根拠となった手がかりを示すので、そのディレクトリが選ばれた理由が分かります",
+        "すでにあるフォルダーは一覧に出ますがスキップされ、重複して作られません",
+        "何が作成され、何がスキップされ、何が失敗してその理由は何かを正確に報告します"
+      ]
+    },
+    "ko": {
+      "displayName": "프로젝트에서 폴더 만들기",
+      "description": "프로젝트 디렉터리를 지정하면 그 안에 어떤 하위 프로젝트가 있는지 파악하여 각각에 맞는 사이드바 폴더를 만듭니다. 스캔은 읽기 전용이므로 아무것도 만들어지기 전에 전체 목록을 보고 원하는 항목을 선택할 수 있습니다. 하위 프로젝트는 디스크에서와 같은 방식으로 상위 항목 아래에 중첩되며, 이미 설정해 둔 것은 표시되지만 두 번 만들어지지는 않습니다.",
+      "pageLabel": "폴더 만들기",
+      "highlights": [
+        "먼저 읽기 전용으로 스캔하므로 선택을 확인할 때까지 아무것도 만들어지지 않습니다",
+        "최상위 패키지를 행으로 나열하고, 더 깊은 항목은 하나의 접힌 그룹에 모아 전체 선택하거나 전체 해제할 수 있습니다",
+        "확실한 일치 항목은 미리 선택되고, 약한 항목은 직접 고를 수 있게 제시됩니다",
+        "각 일치의 근거가 된 신호를 보여 주므로 해당 디렉터리가 선택된 이유를 알 수 있습니다",
+        "이미 있는 폴더는 목록에 나오지만 건너뛰며 중복으로 만들어지지 않습니다",
+        "무엇이 만들어지고 건너뛰어졌으며, 무엇이 실패했고 그 이유가 무엇인지 정확히 보고합니다"
+      ]
+    },
+    "pt": {
+      "displayName": "Criar pastas a partir de um projeto",
+      "description": "Aponte-o para um diretório de projeto e ele descobre quais subprojetos existem dentro, criando depois uma pasta da barra lateral para cada um. A análise é somente de leitura, por isso você vê a lista completa e marca o que quiser antes de qualquer coisa ser criada. Os subprojetos ficam aninhados sob o diretório superior tal como no disco, e o que você já configurou é mostrado mas nunca criado duas vezes.",
+      "pageLabel": "Criar pastas",
+      "highlights": [
+        "Analisa primeiro em modo somente leitura, então nada é criado até você confirmar uma seleção",
+        "Lista os pacotes de nível superior como linhas, com os achados mais profundos em um único grupo recolhido que você pode selecionar por inteiro ou deixar vazio",
+        "As correspondências confiáveis vêm marcadas; as mais fracas ficam para você escolher",
+        "Mostra os sinais por trás de cada correspondência, para você ver por que um diretório foi escolhido",
+        "As pastas que você já tem aparecem na lista mas são ignoradas, nunca duplicadas",
+        "Informa exatamente o que foi criado, o que foi ignorado, e o que falhou e por quê"
+      ]
+    },
+    "ru": {
+      "displayName": "Создать папки из проекта",
+      "description": "Укажите каталог проекта, и он определит, какие подпроекты находятся внутри, а затем создаст для каждого из них соответствующую папку на боковой панели. Сканирование выполняется только для чтения, поэтому вы видите весь список и отмечаете нужное, прежде чем что-либо будет создано. Подпроекты вкладываются в родительский каталог так же, как на диске, а то, что уже настроено, показывается, но никогда не создаётся повторно.",
+      "pageLabel": "Создать папки",
+      "highlights": [
+        "Сначала сканирование только для чтения, поэтому ничего не создаётся до подтверждения выбора",
+        "Показывает пакеты верхнего уровня строками, а более глубокие находки — в одной свёрнутой группе, которую можно выбрать целиком или снять выбор",
+        "Надёжные совпадения отмечены заранее; более слабые предлагаются на ваш выбор",
+        "Показывает признаки, по которым найдено совпадение, чтобы было видно, почему выбран каталог",
+        "Уже имеющиеся папки перечисляются, но пропускаются и никогда не дублируются",
+        "Сообщает точно, что создано, что пропущено, а что не удалось и почему"
+      ]
+    },
+    "zh-CN": {
+      "displayName": "从项目创建文件夹",
+      "description": "指定一个项目目录，它会找出其中包含哪些子项目，然后为每个子项目创建一个对应的侧边栏文件夹。扫描是只读的，因此在创建任何内容之前，你可以看到完整列表并勾选需要的项。子项目会按照磁盘上的层级嵌套在其父项之下，已经设置好的内容会显示出来，但绝不会重复创建。",
+      "pageLabel": "创建文件夹",
+      "highlights": [
+        "先以只读方式扫描，在你确认所选内容之前不会创建任何东西",
+        "以行列出顶层包，更深层的发现收拢在一个可折叠分组中，可全选或全不选",
+        "高置信度的匹配默认勾选；较弱的匹配供你自行选择",
+        "显示每个匹配背后的依据，让你了解某个目录为何被选中",
+        "已有的文件夹会列出但会被跳过，绝不重复创建",
+        "准确报告创建了哪些、跳过了哪些，以及哪些失败及原因"
+      ]
+    }
+  }
+}
