@@ -18,6 +18,12 @@ export const HOST_MODULES = [
 
 export default defineConfig({
   plugins: [react()],
+  // Library mode leaves `process.env.NODE_ENV` in the bundled animation library;
+  // a browser has no `process`, so the page would crash on its first animated
+  // row. tests/test_manifest_contract.py pins that the built file names none.
+  define: {
+    'process.env.NODE_ENV': JSON.stringify('production'),
+  },
   build: {
     lib: {
       entry: 'src/index.tsx',

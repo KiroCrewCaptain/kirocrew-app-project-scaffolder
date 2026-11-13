@@ -178,6 +178,12 @@ class TestTheBundle(unittest.TestCase):
         self.assertIn('"/api/project-scaffold/create"', text)
         self.assertNotRegex(text, r"\bfetch\(", "requests go through the scoped useAppApi() client")
 
+    def test_it_reads_no_node_global(self) -> None:
+        """A browser has no ``process``: the bundled animation library's
+        ``process.env.NODE_ENV`` checks are replaced at build time, or the page
+        throws ``ReferenceError`` the first time a row animates."""
+        self.assertNotRegex(_text(), r"\bprocess\.env\b")
+
     def test_no_build_machine_path_is_baked_in(self) -> None:
         """No path of the machine that built it. The bundled animation library's
         module comments name its files relative to ``ui/`` (``// node_modules/...``),
