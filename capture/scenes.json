@@ -1,0 +1,218 @@
+{
+  "app": "project-scaffolder",
+  "fixture": "minimal",
+  "locale": "en-US",
+  "timezone": "UTC",
+  "provenance_note": "The isolated gateway served the Create Folders From Project app built into the Kiro Crew checkout (src/kiro_crew/apps/builtins/project_scaffolder, website/src/apps/project-scaffolder), because a gateway that still ships the built-in cannot install a second app under the same name. This repository is the externally packaged copy of that page, ported with the same markup, strings and requests; PORTING.md lists where the two differ, and none of the differences is on screen in these pictures.",
+  "data": "fictional: a made-up project folder written by capture/demo_tree.py (see data_notes); the folders on screen were created by the page's own Create button",
+  "data_notes": [
+    "The app scans a directory on disk and has no API that writes one, so capture/demo_tree.py wrote a made-up workspace (an allotment-planner project for a community garden, with two small git repositories inside it) under the system temp directory, and the gateway ran with HOME pointing at the made-up home folder beside it.",
+    "The sidebar folders in the results picture were created by pressing the page's own Create sidebar folders button."
+  ],
+  "init_storage": {
+    "mc-nav": "0"
+  },
+  "ready": "text=Scan a project directory",
+  "forbid_text": [
+    "is not enabled",
+    "must be an existing directory",
+    "kirocrew-harness-"
+  ],
+  "setup": [
+    {
+      "name": "turn the app on",
+      "method": "POST",
+      "path": "/api/apps/project-scaffolder/enable"
+    },
+    {
+      "name": "retire the host's one-time startup intro",
+      "method": "POST",
+      "path": "/api/feature-videos/feedback",
+      "body": {
+        "id": "crewmates",
+        "status": "dismissed"
+      },
+      "optional": true
+    }
+  ],
+  "screenshots": [
+    {
+      "name": "hero",
+      "path": "/project-scaffolder",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "steps": [
+        {
+          "fill": "input[aria-label='Project directory']",
+          "value": "/tmp/kc-scaffold-demo/robin/projects/allotment-planner"
+        },
+        {
+          "click": "form button[type=submit]"
+        },
+        {
+          "wait_for": "[data-testid=preview-group]"
+        }
+      ],
+      "ready_after": "text=Root folder + 4 selected",
+      "alt": "The Create Folders From Project page after scanning an allotment-planner project: a preview lists six sub-projects directly under the root, four ticked as Confident (web, design-tokens, api, weather) and two offered as Possible match (mobile, seed-data), each with why it matched, and a Create sidebar folders button"
+    },
+    {
+      "name": "use-case-nested",
+      "path": "/project-scaffolder",
+      "themes": [
+        "light"
+      ],
+      "steps": [
+        {
+          "fill": "input[aria-label='Project directory']",
+          "value": "/tmp/kc-scaffold-demo/robin/projects/allotment-planner"
+        },
+        {
+          "click": "form button[type=submit]"
+        },
+        {
+          "wait_for": "[data-testid=nested-toggle]"
+        },
+        {
+          "click": "[data-testid=nested-toggle]"
+        },
+        {
+          "wait_for": "[data-testid=nested-list]"
+        },
+        {
+          "click": "input[aria-label$='apps/mobile']"
+        },
+        {
+          "scroll": "[data-testid=nested-list]"
+        }
+      ],
+      "ready_after": "text=Inside web",
+      "alt": "The preview with mobile now ticked and the collapsed group below it opened: 1 possible sub-folder inside packages above, the e2e folder inside web, offered as a Possible match and left unticked"
+    },
+    {
+      "name": "use-case-results",
+      "path": "/project-scaffolder",
+      "themes": [
+        "light"
+      ],
+      "steps": [
+        {
+          "fill": "input[aria-label='Project directory']",
+          "value": "/tmp/kc-scaffold-demo/robin/projects/allotment-planner"
+        },
+        {
+          "click": "form button[type=submit]"
+        },
+        {
+          "wait_for": "[data-testid=preview-group]"
+        },
+        {
+          "click": "text=Create sidebar folders"
+        },
+        {
+          "wait_for": "[data-testid=scaffold-results]"
+        },
+        {
+          "wait_for": "[data-testid=root-existing]"
+        },
+        {
+          "scroll": "[data-testid=scaffold-results]"
+        }
+      ],
+      "ready_after": "text=5 created",
+      "alt": "After pressing Create sidebar folders: a Results card reports 5 created, listing the root folder and the four ticked sub-projects, and the preview above now marks those rows Already set up while mobile and seed-data stay unticked"
+    }
+  ],
+  "walkthrough": {
+    "name": "walkthrough",
+    "theme": "light",
+    "path": "/project-scaffolder",
+    "ready": "text=Scan a project directory",
+    "alt": "A walkthrough of Create Folders From Project: typing the allotment-planner project's path and pressing Scan, the preview listing confident and possible sub-projects with why each matched, ticking mobile, opening the deferred group to see the e2e folder inside web, then pressing Create sidebar folders and reading the Results card while the created rows turn Already set up",
+    "steps": [
+      {
+        "caption": "Point it at a project directory"
+      },
+      {
+        "type": "input[aria-label='Project directory']",
+        "value": "/tmp/kc-scaffold-demo/robin/projects/allotment-planner",
+        "delay_ms": 35
+      },
+      {
+        "wait_ms": 600
+      },
+      {
+        "click": "form button[type=submit]"
+      },
+      {
+        "wait_for": "[data-testid=preview-group]"
+      },
+      {
+        "caption": "The scan is read-only: nothing exists yet"
+      },
+      {
+        "wait_ms": 2600
+      },
+      {
+        "caption": "Confident matches start ticked; tick the others you want"
+      },
+      {
+        "click": "input[aria-label$='apps/mobile']"
+      },
+      {
+        "wait_ms": 1800
+      },
+      {
+        "caption": "Deeper finds wait in one collapsed group"
+      },
+      {
+        "click": "[data-testid=nested-toggle]"
+      },
+      {
+        "wait_for": "[data-testid=nested-list]"
+      },
+      {
+        "wait_ms": 2400
+      },
+      {
+        "caption": "Create the folders you ticked"
+      },
+      {
+        "hover": "text=Create sidebar folders"
+      },
+      {
+        "wait_ms": 1500
+      },
+      {
+        "click": "text=Create sidebar folders"
+      },
+      {
+        "wait_for": "[data-testid=scaffold-results]"
+      },
+      {
+        "wait_for": "[data-testid=root-existing]"
+      },
+      {
+        "wait_ms": 1200
+      },
+      {
+        "scroll": "[data-testid=scaffold-results]"
+      },
+      {
+        "caption": "What was created, and what already existed"
+      },
+      {
+        "mouse_park": [
+          1300,
+          800
+        ]
+      },
+      {
+        "wait_ms": 3200
+      }
+    ],
+    "tail_ms": 2000
+  }
+}
