@@ -26,7 +26,7 @@ here.
   `tests/test_manifest_contract.py` compares them with the built-in's manifest
   (`tests/fixtures/builtin-app.json`), because adoption refuses a manifest that
   would widen a grant or force the app off. The `version` started equal to the
-  built-in's (`0.1.0`) and only moves up.
+  built-in's (`0.1.0`) and only moves up; see [Fixes since the port](#fixes-since-the-port).
 - The page's markup, class strings, behaviour and every string (the catalogs in
   `ui/i18n/` are the built-in's `apps.projectScaffolder` subtree, keys
   unchanged, so each locale reads exactly as before). The request bodies and the
@@ -76,8 +76,9 @@ here.
 
 ## Fixes since the port
 
-None yet. A change to the built-in's page, strings or manifest in Kiro Crew is
-ported here first, recorded in this table, and released with a patch version.
+A change to the built-in's page, strings or manifest in Kiro Crew is ported here
+first, recorded in this table, and released with a patch version.
 
 | Kiro Crew change | Here | Version |
 |---|---|---|
+| None: the built-in's page, strings and manifest are unchanged since the port (checked against kirodotdev/KiroCrew `main` when this release was cut) | The release Kiro Crew pins first. Same page as 0.1.0, which never shipped in a pin; the bundle no longer reads `process.env` (#1) | 0.1.1 |
