@@ -1,0 +1,20 @@
+Create Folders From Project, an app for Kiro Crew
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+This product includes software developed at
+Amazon.com, Inc. (https://www.amazon.com/).
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+The committed page bundle (ui/dist/index.mjs) includes the following
+third-party packages, each under the MIT License:
+
+- framer-motion, Copyright (c) 2018 Framer B.V.
+- motion-dom, Copyright (c) 2024 Motion B.V.
+- motion-utils, Copyright (c) 2024 Motion B.V.
+
+Their license text is reproduced in THIRD-PARTY-NOTICES.
